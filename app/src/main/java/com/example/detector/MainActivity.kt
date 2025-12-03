@@ -10,6 +10,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.detector.ui.theme.DetectorTheme
+import com.google.firebase.auth.FirebaseAuth
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +55,9 @@ fun DetectorApp() {
                 }
                 composable("alertHistory") {
                     AlertHistoryScreen(navController)
+                }
+                composable("resetPassword") {
+                    ResetPasswordScreen(navController, FirebaseAuth.getInstance())
                 }
 
             }

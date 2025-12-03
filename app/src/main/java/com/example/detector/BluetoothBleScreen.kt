@@ -30,6 +30,14 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.*
 
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BluetoothBleScreen(navController: NavController) {
@@ -39,6 +47,10 @@ fun BluetoothBleScreen(navController: NavController) {
     var ssid by remember { mutableStateOf("") }
     var pass by remember { mutableStateOf("") }
     var firebasePass by remember { mutableStateOf("") }
+
+    // estados para mostrar/ocultar las contraseñas
+    var showWifiPass by remember { mutableStateOf(false) }
+    var showFirebasePass by remember { mutableStateOf(false) }
 
     val firebaseUser = FirebaseAuth.getInstance().currentUser
     val email = firebaseUser?.email ?: ""
@@ -241,20 +253,44 @@ fun BluetoothBleScreen(navController: NavController) {
 
             Spacer(modifier = Modifier.height(8.dp))
 
+            // Campo contraseña Wi-Fi (oculta con botón para mostrar)
             OutlinedTextField(
                 value = pass,
                 onValueChange = { pass = it },
                 label = { Text("Contraseña Wi-Fi") },
-                modifier = Modifier.fillMaxWidth(0.9f)
+                modifier = Modifier.fillMaxWidth(0.9f),
+                visualTransformation = if (showWifiPass) VisualTransformation.None else PasswordVisualTransformation(),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                trailingIcon = {
+                    IconButton(onClick = { showWifiPass = !showWifiPass }) {
+                        if (showWifiPass) {
+                            Icon(Icons.Filled.VisibilityOff, contentDescription = "Ocultar contraseña")
+                        } else {
+                            Icon(Icons.Filled.Visibility, contentDescription = "Mostrar contraseña")
+                        }
+                    }
+                }
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
+            // Campo contraseña Firebase (oculta con botón para mostrar)
             OutlinedTextField(
                 value = firebasePass,
                 onValueChange = { firebasePass = it },
                 label = { Text("Contraseña Firebase") },
-                modifier = Modifier.fillMaxWidth(0.9f)
+                modifier = Modifier.fillMaxWidth(0.9f),
+                visualTransformation = if (showFirebasePass) VisualTransformation.None else PasswordVisualTransformation(),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                trailingIcon = {
+                    IconButton(onClick = { showFirebasePass = !showFirebasePass }) {
+                        if (showFirebasePass) {
+                            Icon(Icons.Filled.VisibilityOff, contentDescription = "Ocultar contraseña")
+                        } else {
+                            Icon(Icons.Filled.Visibility, contentDescription = "Mostrar contraseña")
+                        }
+                    }
+                }
             )
 
             Spacer(modifier = Modifier.height(16.dp))

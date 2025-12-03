@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.detector">
 
-    <!-- Permisos necesarios -->
+    <!-- 🔹 Permisos necesarios -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
@@ -21,9 +21,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Detector"
-        tools:targetApi="31"
-        android:usesCleartextTraffic="true"> <!-- necesario si usas Firebase sin HTTPS -->
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
 
+        <!-- 🔹 Actividad principal -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -33,6 +34,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 🔹 FileProvider para abrir PDF -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
     </application>
 

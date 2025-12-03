@@ -57,6 +57,8 @@ dependencies {
     implementation(libs.androidx.navigation.runtime.android)
     implementation("androidx.navigation:navigation-compose:2.7.3")
     implementation(libs.androidx.datastore.preferences)
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
 
     // ✅ Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
@@ -64,6 +66,12 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-database-ktx")
 
+// iText7 - solo los módulos que necesitas
+    implementation("com.itextpdf:kernel:7.2.3")
+    implementation("com.itextpdf:layout:7.2.3")
+    implementation("com.itextpdf:io:7.2.3")
+
+    
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

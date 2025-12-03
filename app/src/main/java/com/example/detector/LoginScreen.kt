@@ -125,5 +125,11 @@ fun LoginScreen(navController: NavController) {
         }) {
             Text("¿No tienes cuenta? Crear una")
         }
+        TextButton(
+            onClick = { navController.navigate("resetPassword") }
+        ) {
+            Text("¿Olvidaste tu contraseña?")
+        }
+
     }
 }
