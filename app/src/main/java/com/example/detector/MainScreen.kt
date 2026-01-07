@@ -34,8 +34,8 @@ fun MainScreen(navController: NavController) {
 
     val mq2Ppm = remember { mutableStateOf(0.0) }
     val mq7Ppm = remember { mutableStateOf(0.0) }
-    var umbralMQ2 by remember { mutableStateOf(300) }
-    var umbralMQ7 by remember { mutableStateOf(40) }
+    var umbralMQ2 by remember { mutableStateOf(200) }
+    var umbralMQ7 by remember { mutableStateOf(65) }
     var nivelSeleccionado by remember { mutableStateOf("Medio") }
 
     var lastUpdateTime by remember { mutableStateOf(System.currentTimeMillis()) }

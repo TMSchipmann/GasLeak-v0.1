@@ -26,9 +26,9 @@ fun ThresholdConfigScreen(navController: NavController) {
     var menuExpanded by remember { mutableStateOf(false) }
 
     val umbralesPredefinidos = mapOf(
-        "Bajo" to Pair(120, 25),
-        "Medio" to Pair(200, 40),
-        "Alto" to Pair(500, 60)
+        "Bajo" to Pair(120, 50),
+        "Medio" to Pair(200, 65),
+        "Alto" to Pair(500, 80)
     )
 
     // Precarga el nivel actual desde Firebase
