@@ -15,3 +15,6 @@
 local.properties
 .idea/
 
+
+# Configuración de Firebase (usar app/google-services.example.json como plantilla)
+app/google-services.json
