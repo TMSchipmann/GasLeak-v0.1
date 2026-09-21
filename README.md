@@ -46,7 +46,7 @@ flowchart LR
 ## Ejecutar la app
 
 1. Clonar el repositorio y abrirlo en Android Studio.
-2. Crear un proyecto propio en Firebase, habilitar Authentication (correo y contraseña) y Realtime Database, y reemplazar `app/google-services.json` por el de ese proyecto.
+2. Crear un proyecto propio en Firebase, habilitar Authentication (correo y contraseña) y Realtime Database, registrar una app Android con el paquete `com.example.detector` y guardar su `google-services.json` en `app/`. El archivo no se versiona; `app/google-services.example.json` muestra la estructura esperada.
 3. Compilar y ejecutar en un dispositivo con Android 8.0 o superior. La configuración BLE requiere un dispositivo físico.
 
 ## Estado
